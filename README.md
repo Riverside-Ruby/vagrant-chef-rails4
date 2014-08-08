@@ -17,7 +17,7 @@ All are free software. Additionally, there are a few Vagrant plugins required:
 Download and install the following:
 
 1. [Git v.1.9.4][wingit]
-2. [VirtualBox][ivb]
+2. [VirtualBox][winvb]
 3. [Vagrant][winvag]
 4. Open the Git Bash application
 5. Install [vagrant-vbguest][vbg]: `vagrant plugin install vagrant-vbguest`
@@ -34,6 +34,7 @@ Download and install the following:
 [brew]: http://brew.sh/
 [wingit]: http://git-scm.com/download/win
 [winvag]: http://www.vagrantup.com/downloads.html
+[winvb]: https://www.virtualbox.org/wiki/Downloads
 [git]: http://git-scm.com/
 [vb]: https://www.virtualbox.org/
 [vag]: http://www.vagrantup.com/
