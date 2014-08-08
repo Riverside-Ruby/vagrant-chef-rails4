@@ -15,10 +15,13 @@ All are free software. Additionally, there are a few Vagrant plugins required:
 
 ## Windows Installation
 Download and install the following:
+
 1. [Git v.1.9.4][wingit]
 2. [VirtualBox][ivb]
 3. [Vagrant][winvag]
 4. Open the Git Bash application
+5. Install [vagrant-vbguest][vbg]: `vagrant plugin install vagrant-vbguest`
+6. Install [vagrant-librarian-chef][vlc]: `vagrant plugin install vagrant-librarian-chef`
 5. Clone this repository: `git clone https://github.com/Riverside-Ruby/vagrant-chef-rails4 rrug`
 6. Change to the `rrug` folder: `cd rrug`
 7. Create the Rails box: `vagrant up`
