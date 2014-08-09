@@ -19,6 +19,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
     chef.add_recipe "apt"
     chef.add_recipe "git"
+    chef.add_recipe "build-essential"
     chef.add_recipe "nodejs"
     chef.add_recipe "ruby_build"
     chef.add_recipe "rbenv::user"
@@ -34,8 +35,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         version: "9.3",
         listen_addresses: "*",
       },
-      build_essential: {
-        compiletime: true
+      "build-essential" => {
+        compile_time: true
       },
       rbenv: {
         user_installs: [{
