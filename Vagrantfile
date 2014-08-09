@@ -34,7 +34,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         version: "9.3",
         listen_addresses: "*",
       },
-      build_essential: { compiletime: true },
+      build_essential: {
+        compiletime: true
+      },
       rbenv: {
         user_installs: [{
           user: 'vagrant',
@@ -42,10 +44,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           global: "2.1.2",
           gems: {
             "2.1.2" => [
-              { name: "bundler",
-                version: "1.6.5" },
-                { name: "rails",
-                  version: "4.1.1" }
+              {
+                name: "bundler",
+                version: "1.6.5"
+              },
+              {
+                name: "rails",
+                version: "4.1.1"
+              }
             ]
           }
         }]
