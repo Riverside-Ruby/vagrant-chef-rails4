@@ -66,7 +66,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "ruby_build"
     chef.add_recipe "rbenv::user"
     chef.add_recipe "rbenv::vagrant"
-    chef.add_recipe "postgresql"
+    chef.add_recipe "postgresql::server"
+    chef.add_recipe "postgresql::client"
+    chef.add_recipe "database"
 
     # chef.roles_path = "../my-recipes/roles"
     # chef.data_bags_path = "../my-recipes/data_bags"
@@ -75,6 +77,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # You may also specify custom JSON attributes:
     # chef.json = { mysql_password: "foo" }
     chef.json = {
+      postgresql: {
+        password: {
+          postgres: "password"
+        },
+        version: "9.3",
+        listen_addresses: "*",
+      },
+      build_essential: { compiletime: true },
       rbenv: {
         user_installs: [{
           user: 'vagrant',
@@ -84,8 +94,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             "2.1.2" => [
               { name: "bundler",
                 version: "1.6.5" },
-              { name: "rails",
-                version: "4.1.1" }
+                { name: "rails",
+                  version: "4.1.1" }
             ]
           }
         }]
