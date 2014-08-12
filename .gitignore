@@ -1,4 +1,4 @@
 # Vagrant
 .vagrant
-cookbooks
+chef/cookbooks
 tmp

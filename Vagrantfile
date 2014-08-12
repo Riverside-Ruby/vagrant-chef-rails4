@@ -8,15 +8,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty32"
 
   # config.vm.network "forwarded_port", guest: 80, host: 8080
-  config.vm.network "forwarded_port", guest: 3000, host: 3001
-  config.vm.network "forwarded_port", guest: 5432, host: 5433
+  config.vm.network "forwarded_port", guest: 3000, host: 3001 # Rails
+  config.vm.network "forwarded_port", guest: 4200, host: 4201 # Ember
+  config.vm.network "forwarded_port", guest: 5432, host: 5433 # Postgresql
+
+  config.vm.network "private_network", type: "dhcp"
+  config.vm.synced_folder ".", "/vagrant", type: "nfs"
 
   config.vm.provider "virtualbox" do |vb|
     vb.customize ["modifyvm", :id, "--memory", "2048"]
   end
 
   config.vm.provision "chef_solo" do |chef|
-    chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
+    chef.cookbooks_path = ["chef/cookbooks", "chef/site-cookbooks"]
     chef.add_recipe "apt"
     chef.add_recipe "git"
     chef.add_recipe "build-essential"
@@ -42,7 +46,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         user_installs: [{
           user: 'vagrant',
           rubies: ["2.1.2"],
-          global: "2.1.2",
           gems: {
             "2.1.2" => [
               {
@@ -58,5 +61,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         }]
       }
     }
+  end
+
+  config.vm.provision "shell" do |sh|
+    sh.path = "chef/script.sh"
   end
 end
