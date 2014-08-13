@@ -1,6 +1,7 @@
 # Vagrant
 .vagrant
 .ruby-version
+Cheffile.lock
 ember
 rails
 chef/cookbooks
