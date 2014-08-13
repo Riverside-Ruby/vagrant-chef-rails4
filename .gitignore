@@ -1,4 +1,8 @@
 # Vagrant
 .vagrant
+.ruby-version
+ember
+rails
 chef/cookbooks
+cookbooks
 tmp
