@@ -20,7 +20,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.provision "chef_solo" do |chef|
-    chef.cookbooks_path = ["chef/cookbooks", "chef/site-cookbooks"]
+    chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
     chef.add_recipe "apt"
     chef.add_recipe "git"
     chef.add_recipe "build-essential"
@@ -64,6 +64,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.provision "shell" do |sh|
-    sh.path = "chef/script.sh"
+    sh.path = "script.sh"
   end
 end
