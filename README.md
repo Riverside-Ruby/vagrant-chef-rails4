@@ -20,7 +20,7 @@ Download and install the following. If there are options, just choose default va
 9. When installation is finished, start your servers.
 
 ## Mac/Linux Installation
-- Follow the instructions above, but feel free to use [Homebrew][brew] to install Git instead of using the binary installer. If you don't know how, talk to Judd, Matt, or Jack.
+- Follow the instructions above, but feel free to use [Homebrew][brew] to install Git instead of using the binary installer. Also, you may have to input your password to allow the NFS exports. If you have problems, talk to Judd, Matt, or Jack.
 
 ## Start the servers
 Vagrant uses [SSH][ssh] to allow direct control of the virtual machine. Follow the steps below to start your Rails and your Ember servers.
