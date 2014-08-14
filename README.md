@@ -27,9 +27,9 @@ Vagrant uses [SSH][ssh] to allow direct control of the virtual machine. Follow t
 
 1. SSH into your vagrant machine from your command line (Git bash): `vagrant ssh`
 2. Split your terminal window with [Tmux][tmux]: `tmux split-window -v` (vertical) or `tmux split-window -h` (horizontal)
-3. Start your Rails server: `rails s`
+3. Start your Rails server: `cd /vagrant/rails && rails s`
 4. Select the other pane: `tmux select-pane -L` (left) or `-U` (up) or `-R` (right) or `-D` (down)
-5. Start your Ember server: `ember s --proxy http://localhost:3000`
+5. Start your Ember server: `cd /vagrant/ember && ember s --proxy http://localhost:3000`
 6. In a web browser, load <http://localhost:3001> for your Rails app or <http://localhost:4201> for your Ember app. The Vagrant configuration forwards port 3000 and 4200 (the default values) to 3001 and 4201 respectively to avoid port number conflicts.
 7. To stop the servers, use Ctrl-C, then type `exit` to close each pane and window.
 
