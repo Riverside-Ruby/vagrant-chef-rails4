@@ -22,36 +22,35 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "chef_solo" do |chef|
     chef.cookbooks_path = ["cookbooks"]
     chef.add_recipe "apt"
-    chef.add_recipe "build-essential"
     chef.add_recipe "git"
-    chef.add_recipe "nodejs"
-    chef.add_recipe "postgresql::client"
-    chef.add_recipe "postgresql::server"
+    chef.add_recipe "build-essential"
     chef.add_recipe "ruby_build"
     chef.add_recipe "rbenv::user"
     chef.add_recipe "rbenv::vagrant"
+    chef.add_recipe "nodejs"
+    chef.add_recipe "postgresql::client"
+    chef.add_recipe "postgresql::server"
 
     chef.json = {
-      postgresql: {
-        password: {
-          postgres: "password"
+      'postgresql' => {
+        'password' => {
+          'postgres' => "password"
         },
-        version: "9.3",
-        listen_addresses: "*",
+        'version' => "9.3",
+        'listen_addresses' => "*",
       },
-      "build-essential" => {
-        compile_time: true
+      'build-essential' => {
+        'compile_time' => true
       },
-
-      rbenv: {
-        user_installs: [{
-          user: 'vagrant',
-          rubies: ['2.1.2'],
-          global: '2.1.2',
-          gems: {
+      'rbenv' => {
+        'user_installs' => [{
+          'user' => "vagrant",
+          'rubies' => ["2.1.2"],
+          'global' => "2.1.2",
+          'gems' => {
             '2.1.2' => [
-              { name: 'bundler' },
-              { name: 'rails' }
+              { 'name' => "bundler" },
+              { 'name' => "rails" }
             ]
           }
         }]
