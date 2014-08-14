@@ -42,16 +42,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       "build-essential" => {
         compile_time: true
       },
+
       rbenv: {
-        rubies: [ "2.1.2" ],
-        upgrade: true,
-        global: "2.1.2",
-        gems: {
-          "2.1.2" => [
-            { name: "bundler" },
-            { name: "rails" }
-          ]
-        }
+        user_installs: [{
+          user: 'vagrant',
+          rubies: ['2.1.2'],
+          global: '2.1.2',
+          gems: {
+            '2.1.2' => [
+              { name: 'bundler' },
+              { name: 'rails' }
+            ]
+          }
+        }]
       }
     }
   end
