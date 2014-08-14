@@ -6,7 +6,7 @@ su - vagrant -c "sudo npm install -g ember-cli"
 su - vagrant -c "sudo npm install -g bower"
 su - vagrant -c "sudo npm install -g phantomjs"
 su - vagrant -c "git clone https://github.com/RiversideJS/ember-topics ${EMBER_DIR}"
-# su - vagrant -c "cd ${EMBER_DIR} && sudo npm install --save-dev"
+su - vagrant -c "cd ${EMBER_DIR} && sudo npm install --save-dev"
 # su - vagrant -c "cd ${EMBER_DIR} && bower install"
 
 RAILS_DIR='/vagrant/rails'
