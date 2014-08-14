@@ -10,6 +10,6 @@
 # su - vagrant -c "cd ${EMBER_DIR} && bower install"
 
 RAILS_DIR='/vagrant/rails'
-su - vagrant -c "git clone https://github.com/Riverside-Ruby/topics-project ${RAILS_DIR}"
-su - vagrant -c "cd ${RAILS_DIR} && bundle"
-su - vagrant -c "cd ${RAILS_DIR} && rake db:create db:migrate db:seed"
+su - vagrant "git clone https://github.com/Riverside-Ruby/topics-project ${RAILS_DIR}"
+su - vagrant "cd ${RAILS_DIR} && bundle"
+su - vagrant "cd ${RAILS_DIR} && rake db:create db:migrate db:seed"
